@@ -4,24 +4,25 @@ import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { auth } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-async function registerUser(email, password) {
-	try {
-		const user = await createUserWithEmailAndPassword(auth, email, password);
-		console.log(user);
-	} catch (e) {
-		alert(e.message);
-	}
-}
-function loginUser(email, password) {}
-function signOut(email, password) {}
+async function loginUser(email, password) {}
+async function signOut(email, password) {}
 
-export default function Login() {
+export default function SignUp() {
 	const emailRef = useRef();
 	const passRef = useRef();
 	const passCNFRef = useRef();
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
+
+	async function registerUser(email, password) {
+		try {
+			const user = await createUserWithEmailAndPassword(auth, email, password);
+			console.log(user);
+		} catch (e) {
+			setError(e.message.split('Firebase: ')[1]);
+		}
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -42,7 +43,7 @@ export default function Login() {
 		<>
 			<Card>
 				<Card.Body>
-					<h2 className="text-center mb-4">Login</h2>
+					<h2 className="text-center mb-4">Sign Up</h2>
 
 					{error && <Alert variant="danger">{error}</Alert>}
 					<Form onSubmit={handleSubmit}>
@@ -67,13 +68,13 @@ export default function Login() {
 							></Form.Control>
 						</Form.Group>
 						<Button disabled={loading} type="submit" className="w-100 mt-4">
-							Sign Up
+							CREATE ACCOUNT
 						</Button>
 					</Form>
 				</Card.Body>
 			</Card>
 			<div className="w-100 text-center mt-2">
-				Don't have an account? Sign Up
+				Already have an Account? Log in
 			</div>
 		</>
 	);

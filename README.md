@@ -1,6 +1,7 @@
-
-# Firebase Setup
-
+# Firebase Setup 
+**Deployment Status**
+<a href="https://adarshchakraborty.netlify.com"><img src="https://api.netlify.com/api/v1/badges/551c2480-12ef-4c2e-9b97-ffe41693b2b6/deploy-status" align="right"></a>
+***
 Just created this repo because I tend to forget the steps to add firebase to my projects.
 
 ## Steps

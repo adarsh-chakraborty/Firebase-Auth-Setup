@@ -1,4 +1,4 @@
-import Login from './Login';
+import SignUp from './SignUp';
 import { Container } from 'react-bootstrap';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 			style={{ minHeight: '100vh' }}
 		>
 			<div className="w-100" style={{ maxWidth: '400px' }}>
-				<Login />
+				<SignUp />
 			</div>
 		</Container>
 	);
