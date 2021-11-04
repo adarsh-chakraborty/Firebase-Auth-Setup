@@ -111,3 +111,21 @@ const login = async () => {
 }
 ```
 
+***
+# Code to add Firebase Objects to Array
+
+```javascript
+  const loadedMovies = [];
+  const data = {}; // 1 big object fetched from Firebase
+  
+  for(const key in data){
+    loadedMovies.push({
+      id: key,
+      title: data[key].title, // field name
+      author: data[key].author,
+      price: data[key].price
+    });
+  }
+  
+  setMovies(loadedMovies);
+```
